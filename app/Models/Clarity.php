@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Clarity extends Model
 {
     use HasFactory;
-    protected $table = 'clarities';
+    //protected $table = 'clarities';
+    protected $fillable = [
+        'name',
+        'status',
+    ];
 }
