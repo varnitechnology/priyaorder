@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password',
 		'user_type',
 		'mobileno',
+        'last_login_datetime',
 		'status',
     ];
 

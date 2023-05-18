@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Http\Controllers\API\BaseController as BaseController;
+use App\Models\Contact;
+use Validator;
+use App\Http\Resources\ContactResource;
 
-class OrderController extends Controller
+class ContactController extends BaseController;
+
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +18,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $contact = Contact::all();
+    
+        return $this->sendResponse(ContactResource::collection($contact), 'Contact retrieved successfully.');
     }
 
     /**
@@ -41,10 +47,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Contact $contact)
     {
         //
     }
@@ -52,10 +58,10 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -64,10 +70,10 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -75,10 +81,10 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Contact $contact)
     {
         //
     }

@@ -34,6 +34,7 @@ class RegisterController extends BaseController
 		//echo "<pre>";
 		//print_r($input);
         $input['password'] = bcrypt($input['password']);
+        $input['last_login_datetime'] = date("Y-m-d H:i:s");
         $user = User::create($input);
         $success['token'] =  $user->createToken('MyApp')->plainTextToken;
         $success['name'] =  $user->name;

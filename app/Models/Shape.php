@@ -9,4 +9,8 @@ class Shape extends Model
 {
     use HasFactory;
     protected $table = 'shapes';
+    protected $fillable = [
+        'name',
+        'status',
+    ];
 }

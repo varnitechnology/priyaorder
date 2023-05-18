@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Controllers\API\BaseController as BaseController;
+use App\Models\UserType;
+use Validator;
+use App\Http\Resources\UserTypeResource;
 
-class ContactController extends Controller
+class UserTypeController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $usertype = UserType::all();
+    
+        return $this->sendResponse(UserTypeResource::collection($usertype), 'User Type retrieved successfully.');
     }
 
     /**
@@ -41,10 +46,10 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\UserType  $userType
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(UserType $userType)
     {
         //
     }
@@ -52,10 +57,10 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\UserType  $userType
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(UserType $userType)
     {
         //
     }
@@ -64,10 +69,10 @@ class ContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\UserType  $userType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, UserType $userType)
     {
         //
     }
@@ -75,10 +80,10 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\UserType  $userType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(UserType $userType)
     {
         //
     }

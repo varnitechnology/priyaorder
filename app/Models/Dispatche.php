@@ -10,4 +10,8 @@ class Dispatche extends Model
     use HasFactory;
 
     protected $table = 'dispatches';
+    protected $fillable = [
+        'name',
+        'status',
+    ];
 }

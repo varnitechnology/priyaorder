@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Models\Company;
 use Illuminate\Http\Request;
+use App\Http\Controllers\API\BaseController as BaseController;
+use App\Models\Dispatche;
+use Validator;
+use App\Http\Resources\ContactResource;
 
-class CompanyController extends Controller
+class DispatcheController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $dispatche = Dispatche::all();
+    
+        return $this->sendResponse(DispatcheResource::collection($dispatche), 'Dispatche retrieved successfully.');
     }
 
     /**
@@ -41,10 +46,10 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Dispatche  $dispatche
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show(Dispatche $dispatche)
     {
         //
     }
@@ -52,10 +57,10 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Dispatche  $dispatche
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit(Dispatche $dispatche)
     {
         //
     }
@@ -64,10 +69,10 @@ class CompanyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Dispatche  $dispatche
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, Dispatche $dispatche)
     {
         //
     }
@@ -75,10 +80,10 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Company  $company
+     * @param  \App\Models\Dispatche  $dispatche
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy(Dispatche $dispatche)
     {
         //
     }
